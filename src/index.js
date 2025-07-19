@@ -32,7 +32,7 @@ server.on('close', function() {
 });
 
 const port = config.port;
-server.listen(port, function() {
+server.listen(port, '0.0.0.0', function() {
   // Update permissions of unix sockets
   if (typeof port === 'string' && port.startsWith('/') && config.unixSocketPermissions >= 0) {
     fs.chmod(port, config.unixSocketPermissions, function(err) {
